@@ -1,0 +1,52 @@
+.btn-produto {
+  background-color: transparent;
+  width: 320px;
+  height: 160px;
+  border-radius: 10px;
+  border: 1px solid var(--branco);
+  color: var(--branco);
+  cursor: pointer;
+  display: flex;            /* coloca imagem + texto lado a lado */
+  align-items: flex-start;  /* alinha pelo topo */
+  gap: 15px;                /* espaço entre imagem e textos */
+  padding: 10px;
+}
+
+.container-botoes{
+  display: flex;
+  flex-direction: column; /* deixa um embaixo do outro */
+  align-items: center;    /* centraliza */
+  gap: 20px;              /* espaço entre os botões */
+  margin-top: 35px;
+  
+}
+
+.btn-produto img {
+  display: flex;
+  justify-content: flex-start;
+  width: 100px;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.btn-produto h2 {
+    display: flex;
+    color: var(--titulo-produto);
+    justify-content: center;
+    flex-direction: column;
+}
+
+.informacoes{
+    display: flex;
+    justify-content: end;
+    text-align: center;
+    margin-top: 25px; 
+} 
+
+.preco{
+    font-size:large;
+    font-weight: 200;
+    margin-top: 25px;
+}
+

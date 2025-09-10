@@ -1,0 +1,66 @@
+.cabecalho {
+  background-color: var(--cor-cabecalho);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 81px;
+  padding: 0 10px;
+  gap: 10px;
+}
+
+.btn-voltar {
+  background-color: transparent;
+  width: 50px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--branco);
+  color: var(--branco);
+  cursor: pointer;
+}
+
+/* Container da barra de pesquisa */
+.search-container {
+  position: relative; /* necessário para posicionar ícones */
+  flex: 1; /* ocupa espaço no meio */
+  max-width: 500px;
+}
+
+/* Input de pesquisa */
+.barra-de-pesquisa {
+  width: 100%;
+  padding: 10px 40px; /* espaço pros ícones dentro */
+  background-color: transparent;
+  border: 1px solid var(--branco);
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  color: var(--branco);
+}
+
+/* Ícones dentro da barra */
+.search-container .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--branco);
+  font-size: 14px;
+  pointer-events: none; /* não atrapalham clique no input */
+}
+
+.icon-left {
+  left: 12px;
+}
+
+.icon-right {
+  right: 35px;
+}
+
+.icon-extra {
+  right: 12px;
+}
+
+/* Ícone do usuário */
+.icon-user i {
+  font-size: 20px;
+  color: var(--branco);
+}

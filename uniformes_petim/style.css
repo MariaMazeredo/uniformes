@@ -1,0 +1,42 @@
+@import url("estilos/cabeçalho.css");
+@import url("estilos/modal.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+    --cor-de-fundo: #1E1E1E;
+    --cor-cabecalho: #000000;
+    --branco: #FFFFFF;
+    --titulo-produto: #038C25;
+
+}
+
+body{
+    background-color: var(--cor-de-fundo);
+}
+
+.carrinho-compras {
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+}
+
+.btn-carrinho{
+  background: transparent;
+  border: none;
+  padding: 8px;
+  margin: 4px;;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.aba-uniforme img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 380px;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
