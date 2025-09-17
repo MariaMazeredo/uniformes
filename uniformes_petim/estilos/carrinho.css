@@ -1,0 +1,98 @@
+/* Escopo do carrinho */
+#modal-carrinho-compras .modal-content {
+  padding: 15px;
+  color: var(--branco);
+}
+
+/* Cabeçalho */
+#modal-carrinho-compras .meu-carrinho {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Ícone carrinho */
+#modal-carrinho-compras .carrin {
+  width: 30px;
+  height: auto;
+}
+
+/* Cada produto */
+#modal-carrinho-compras .produto {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  background: rgba(255,255,255,0.05);
+  padding: 8px;
+  border-radius: 6px;
+}
+
+/* Checkbox */
+#modal-carrinho-compras .produto input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Imagem pequena */
+#modal-carrinho-compras .produto img {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Nome + preço */
+#modal-carrinho-compras .produto-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#modal-carrinho-compras .produto-info .nome {
+  color: var(--branco);
+  font-weight: 500;
+}
+
+#modal-carrinho-compras .produto-info .preco {
+  color: var(--branco);
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Botão remover */
+#modal-carrinho-compras .btn-remover {
+  background: transparent;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Total */
+#modal-carrinho-compras .total {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 15px;
+  text-align: right;
+}
+
+/* Botão finalizar */
+#modal-carrinho-compras .btn-finalizar-compra {
+  background-color: var(--cor-verde);
+  border: none;
+  color: var(--branco);
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 20px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

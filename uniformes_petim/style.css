@@ -1,10 +1,11 @@
 @import url("estilos/cabeçalho.css");
+@import url("estilos/carrinho.css");
 @import url("estilos/modal.css");
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
 :root {
-    --cor-de-fundo: #1E1E1E;
+    --cor-de-fundo: #0D0B0A;
     --cor-cabecalho: #000000;
     --branco: #FFFFFF;
     --titulo-produto: #038C25;
@@ -30,6 +31,12 @@ body{
   cursor: pointer;
 }
 
+.aba-uniforme{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .aba-uniforme img{
   display: flex;
   justify-content: center;
@@ -40,3 +47,42 @@ body{
   margin-bottom: 10px;
 }
 
+.footer {
+    background-color: var(--cor-de-fundo);
+    color: var(--cor-de-fundo);
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+.finalizado {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco);
+    text-align: center;
+    padding: 80px 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 5px;
+    margin-top: -55px;
+}
+
+.finalizado h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #04BF55;
+    font-family:'Montserrat', sans-serif; 
+    font-weight: 500;
+}
+
+.check {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: -30px;
+}

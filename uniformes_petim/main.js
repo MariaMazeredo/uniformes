@@ -1,155 +1,201 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  // ================= MODAL PRODUTO =================
+  // Variáveis globais
   const botoesProduto = document.querySelectorAll(".btn-produto");
   const modalProduto = document.getElementById("modal-produto");
-  const fecharProduto = modalProduto.querySelector(".btn-fechar");
-
-  const modalImg = document.getElementById("modal-img");
-  const modalNome = document.getElementById("modal-nome");
-  const modalDesc = document.getElementById("modal-desc");
-  const modalPreco = document.getElementById("modal-preco");
-  const quantidadeEl = document.getElementById("quantidade");
-  const btnMais = modalProduto.querySelector(".mais");
-  const btnMenos = modalProduto.querySelector(".menos");
-  const tamanhoBtns = modalProduto.querySelectorAll(".tamanho-btn");
+  const modalProdutoImg = document.getElementById("modal-produto-img");
+  const modalProdutoNome = document.getElementById("modal-produto-nome");
+  const modalProdutoDesc = document.getElementById("modal-produto-desc");
+  const modalProdutoPreco = document.getElementById("modal-produto-preco");
+  const quantidadeSpan = document.getElementById("quantidade");
+  const tamanhoBtns = document.querySelectorAll(".tamanho-btn");
+  const modalCarrinho = document.getElementById("modal-carrinho-compras");
+  const botaoCarrinho = document.querySelector(".btn-carrinho");
+  const botaoCarrinhoModal = document.querySelector(".btn-carrinho-modal");
+  const botoesFechar = document.querySelectorAll(".btn-fechar");
+  const carrinhoItens = document.getElementById("carrinho-itens");
+  const carrinhoTotalSpan = document.getElementById("carrinho-total");
 
   let quantidade = 1;
+  let tamanhoSelecionado = "";
 
-  // Abrir modal do produto
+  // Funções abrir/fechar modais
+  function abrirModal(modal) {
+    if (!modal) return;
+    modal.style.display = "flex";
+    document.body.classList.add("modal-ativo");
+  }
+
+  function fecharModal(modal) {
+    if (!modal) return;
+    modal.style.display = "none";
+    const algumAberto = document.querySelector('.modal[style*="flex"]');
+    if (!algumAberto) document.body.classList.remove("modal-ativo");
+  }
+
+  // Abrir modal produto
   botoesProduto.forEach(botao => {
     botao.addEventListener("click", () => {
-      const img = botao.querySelector("img").src;
-      const nome = botao.querySelector("h2").textContent;
-      const desc = botao.querySelector(".informacoes").textContent;
-      const preco = botao.querySelector(".preco").textContent;
+      const img = botao.querySelector("img");
+      const nome = botao.querySelector("h2");
+      const desc = botao.querySelector(".informacoes");
+      const preco = botao.querySelector(".preco");
 
-      modalImg.src = img;
-      modalNome.textContent = nome;
-      modalDesc.textContent = desc;
-      modalPreco.textContent = preco;
+      modalProdutoImg.src = img ? img.src : "";
+      modalProdutoNome.textContent = nome ? nome.textContent : "";
+      modalProdutoDesc.textContent = desc ? desc.textContent : "";
+      modalProdutoPreco.textContent = preco ? preco.textContent : "";
 
       quantidade = 1;
-      quantidadeEl.textContent = quantidade;
-
-      // Reset seleção de tamanho
+      quantidadeSpan.textContent = quantidade;
+      tamanhoSelecionado = "";
       tamanhoBtns.forEach(b => b.classList.remove("selecionado"));
 
-      modalProduto.classList.add("ativo");
-      document.body.classList.add("modal-ativo");
+      abrirModal(modalProduto);
     });
   });
 
-  // Fechar modal do produto
-  fecharProduto.addEventListener("click", () => {
-    modalProduto.classList.remove("ativo");
-    document.body.classList.remove("modal-ativo");
-  });
+  // Botões de quantidade
+  const maisBtn = document.querySelector(".mais");
+  const menosBtn = document.querySelector(".menos");
 
-  // Controles de quantidade
-  btnMais.addEventListener("click", () => {
+  if (maisBtn) maisBtn.addEventListener("click", () => {
     quantidade++;
-    quantidadeEl.textContent = quantidade;
+    quantidadeSpan.textContent = quantidade;
   });
 
-  btnMenos.addEventListener("click", () => {
-    if (quantidade > 1) {
-      quantidade--;
-      quantidadeEl.textContent = quantidade;
-    }
+  if (menosBtn) menosBtn.addEventListener("click", () => {
+    if (quantidade > 1) quantidade--;
+    quantidadeSpan.textContent = quantidade;
   });
 
-  // Seleção de tamanho
+  // Botões de tamanho
   tamanhoBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       tamanhoBtns.forEach(b => b.classList.remove("selecionado"));
       btn.classList.add("selecionado");
+      tamanhoSelecionado = btn.textContent;
     });
   });
 
-  // ================= MODAL CARRINHO =================
-const modalCarrinho = document.getElementById("modal-carrinho-compras");
-const btnFecharCarrinho = modalCarrinho.querySelector(".btn-fechar");
-const listaCarrinho = document.getElementById("lista-carrinho");
-const totalCarrinho = document.getElementById("total-carrinho");
-
-  let carrinho = [];
-
-  // Fechar modal carrinho
-  btnFecharCarrinho.addEventListener("click", () => {
-    modalCarrinho.style.display = "none";
-    document.body.classList.remove("modal-ativo");
+  // Fechar modais
+  botoesFechar.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const modal = btn.closest(".modal");
+      if (modal) fecharModal(modal);
+    });
   });
 
-  // Abrir modal carrinho pelo botão de ícone (se existir)
-  const btnAbrirCarrinho = document.querySelector(".btn-carrinho");
-  if (btnAbrirCarrinho) {
-    btnAbrirCarrinho.addEventListener("click", () => {
-      modalCarrinho.style.display = "flex";
-      document.body.classList.add("modal-ativo");
-      atualizarCarrinho();
+  window.addEventListener("click", (e) => {
+    if (e.target.classList && e.target.classList.contains("modal")) {
+      fecharModal(e.target);
+    }
+  });
+
+  const botaoComprarModal = document.querySelector(".btn-comprar-modal");
+if (botaoComprarModal) {
+  botaoComprarModal.addEventListener("click", () => {
+    window.location.href = "finalizado.html";
+  });
+}
+
+// Botão "Comprar Agora" do modal carrinho
+const botaoFinalizarCompra = document.querySelector(".btn-finalizar-compra");
+if (botaoFinalizarCompra) {
+  botaoFinalizarCompra.addEventListener("click", () => {
+    window.location.href = "finalizado.html";
+  });
+}
+
+  // Abrir modal carrinho
+  if (botaoCarrinho) {
+    botaoCarrinho.addEventListener("click", () => {
+      fecharModal(modalProduto);
+      abrirModal(modalCarrinho);
     });
   }
 
-  // ================= ADICIONAR AO CARRINHO =================
-  const btnCarrinhoModal = modalProduto.querySelector(".btn-carrinho-modal");
-
-  btnCarrinhoModal.addEventListener("click", () => {
-    const nome = modalNome.innerText;
-    const preco = parseFloat(modalPreco.innerText.replace("R$", "").replace(",", "."));
-    const tamanhoSelecionado = modalProduto.querySelector(".tamanho-btn.selecionado");
-    
+  // Adicionar ao carrinho
+  if (botaoCarrinhoModal) {
+  botaoCarrinhoModal.addEventListener("click", () => {
+    // Verifica se o tamanho foi selecionado
     if (!tamanhoSelecionado) {
       alert("Selecione um tamanho antes de adicionar ao carrinho!");
-      return;
+      return; // impede adicionar sem tamanho
     }
 
-    // Verifica se produto já existe no carrinho
-    const produtoExistente = carrinho.find(p => p.nome === nome && p.tamanho === tamanhoSelecionado.innerText);
-    if (produtoExistente) {
-      produtoExistente.quantidade += quantidade;
-    } else {
-      carrinho.push({
-        nome: nome,
-        preco: preco,
-        quantidade: quantidade,
-        tamanho: tamanhoSelecionado.innerText
-      });
-    }
+    const nome = modalProdutoNome.textContent;
+    const precoTexto = modalProdutoPreco.textContent.replace("R$ ", "").replace(",", ".");
+    const preco = parseFloat(precoTexto) || 0;
+    const img = modalProdutoImg.src;
 
-    atualizarCarrinho();
-    modalCarrinho.style.display = "flex";
-    document.body.classList.add("modal-ativo");
+    adicionarAoCarrinho(nome, preco, img, quantidade, tamanhoSelecionado);
+
+    fecharModal(modalProduto);
+    abrirModal(modalCarrinho);
   });
+}
 
-  // Atualiza itens e total do carrinho
-  function atualizarCarrinho() {
-    listaCarrinho.innerHTML = "";
-    let total = 0;
-
-    carrinho.forEach(item => {
-      total += item.preco * item.quantidade;
-      const div = document.createElement("div");
-      div.classList.add("item-carrinho");
-      div.innerHTML = `
-        <strong>${item.nome}</strong> - Tamanho: ${item.tamanho} - Qtd: ${item.quantidade} - R$ ${(item.preco * item.quantidade).toFixed(2)}
-      `;
-      listaCarrinho.appendChild(div);
+  function adicionarAoCarrinho(nome, preco, img, qtd, tamanho) {
+    // Verifica se já existe produto com mesmo nome e tamanho
+    let itemExistente = Array.from(carrinhoItens.children).find(item => {
+      return item.dataset.nome === nome && item.dataset.tamanho === tamanho;
     });
 
-    totalCarrinho.innerText = `Total: R$ ${total.toFixed(2)}`;
+    if (itemExistente) {
+      // Atualiza quantidade existente
+      let novaQtd = parseInt(itemExistente.dataset.quantidade) + qtd;
+      itemExistente.dataset.quantidade = novaQtd;
+      itemExistente.querySelector(".quantidade-item").textContent = novaQtd;
+    } else {
+      // Cria novo item
+      const itemCarrinho = document.createElement("div");
+      itemCarrinho.classList.add("produto");
+      itemCarrinho.dataset.preco = preco;
+      itemCarrinho.dataset.quantidade = qtd;
+      itemCarrinho.dataset.nome = nome;
+      itemCarrinho.dataset.tamanho = tamanho;
+
+    if (tamanho != "p, m, g, gg") {
+      nome += ` - ${tamanho}`;
+    }
+
+      itemCarrinho.innerHTML = `
+        <input type="checkbox" checked>
+        <img src="${img}" alt="${nome}">
+        <div class="produto-info">
+          <span class="nome">${nome} ${tamanho ? '- ' + tamanho : ''}</span>
+          <span class="preco">R$ ${preco.toFixed(2).replace(".", ",")}</span>
+          <span class="quantidade-item">${qtd}</span>
+        </div>
+        <button class="btn-remover">✖</button>
+      `;
+
+      carrinhoItens.appendChild(itemCarrinho);
+
+      // Remover item
+      itemCarrinho.querySelector(".btn-remover").addEventListener("click", () => {
+        itemCarrinho.remove();
+        atualizarTotal();
+      });
+
+      // Atualiza total ao marcar/desmarcar
+      itemCarrinho.querySelector("input[type='checkbox']").addEventListener("change", atualizarTotal);
+    }
+
+    atualizarTotal();
   }
 
-  // Fechar modal clicando fora
-  window.addEventListener("click", (e) => {
-    if (e.target === modalProduto) {
-      modalProduto.classList.remove("ativo");
-      document.body.classList.remove("modal-ativo");
-    }
-    if (e.target === modalCarrinho) {
-      modalCarrinho.style.display = "none";
-      document.body.classList.remove("modal-ativo");
-    }
-  });
+  function atualizarTotal() {
+    let total = 0;
+    document.querySelectorAll("#carrinho-itens .produto").forEach(item => {
+      const checkbox = item.querySelector("input[type='checkbox']");
+      if (checkbox && checkbox.checked) {
+        const preco = parseFloat(item.dataset.preco) || 0;
+        const qtd = parseInt(item.dataset.quantidade) || 0;
+        total += preco * qtd;
+      }
+    });
 
+    carrinhoTotalSpan.textContent = total.toFixed(2).replace(".", ",");
+  }
 });
