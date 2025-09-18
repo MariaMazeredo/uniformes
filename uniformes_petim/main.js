@@ -55,18 +55,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Botões de quantidade
-  const maisBtn = document.querySelector(".mais");
-  const menosBtn = document.querySelector(".menos");
+  const maisBtn = document.querySelector(".menos");
+  const menosBtn = document.querySelector(".mais");
 
-  if (maisBtn) maisBtn.addEventListener("click", () => {
+if (menosBtn) menosBtn.addEventListener("click", () => {
+    if (quantidade > 1) quantidade--;
+    quantidadeSpan.textContent = quantidade;
+  });
+
+if (maisBtn) maisBtn.addEventListener("click", () => {
     quantidade++;
     quantidadeSpan.textContent = quantidade;
   });
 
-  if (menosBtn) menosBtn.addEventListener("click", () => {
-    if (quantidade > 1) quantidade--;
-    quantidadeSpan.textContent = quantidade;
-  });
 
   // Botões de tamanho
   tamanhoBtns.forEach(btn => {
@@ -199,3 +200,11 @@ if (botaoFinalizarCompra) {
     carrinhoTotalSpan.textContent = total.toFixed(2).replace(".", ",");
   }
 });
+
+// Botão Voltar para página finalizado
+const botaoVoltar = document.querySelector(".btn-voltar");
+if (botaoVoltar) {
+  botaoVoltar.addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+}
