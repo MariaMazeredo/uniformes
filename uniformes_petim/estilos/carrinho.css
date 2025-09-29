@@ -69,7 +69,7 @@
 #modal-carrinho-compras .btn-remover {
   background: transparent;
   border: none;
-  color: red;
+  color: var(--cor-verde);
   font-size: 18px;
   cursor: pointer;
 }

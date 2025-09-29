@@ -103,7 +103,7 @@ if (botaoComprarModal) {
 const botaoFinalizarCompra = document.querySelector(".btn-finalizar-compra");
 if (botaoFinalizarCompra) {
   botaoFinalizarCompra.addEventListener("click", () => {
-    window.location.href = "finalizado.html";
+    window.location.href = "termosDeUso.html";
   });
 }
 
@@ -201,10 +201,18 @@ if (botaoFinalizarCompra) {
   }
 });
 
-// Botão Voltar para página finalizado
+// Botão Voltar para página inicial
 const botaoVoltar = document.querySelector(".btn-voltar");
 if (botaoVoltar) {
   botaoVoltar.addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+}
+
+// Botão Negar Termos para página inicial
+const botaoNegarTermos = document.querySelector(".btn-negar-termos");
+if (botaoNegarTermos) {
+  botaoNegarTermos.addEventListener("click", () => {
     window.location.href = "index.html";
   });
 }
