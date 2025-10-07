@@ -216,3 +216,11 @@ if (botaoNegarTermos) {
     window.location.href = "index.html";
   });
 }
+
+// Botão Aceitar Termos para página de finalização
+const botaoAceitarTermos = document.querySelector(".btn-aceitar-termos");
+if (botaoAceitarTermos) {
+  botaoAceitarTermos.addEventListener("click", () => {
+    window.location.href = "finalizado.html";
+  });
+}

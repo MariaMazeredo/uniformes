@@ -86,7 +86,7 @@
   justify-content: center;
 }
 
-.btn-confirmar-termos{
+.btn-aceitar-termos{
   background-color: var(--cor-verde);
   border: none;
   color: var(--branco);
