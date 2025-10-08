@@ -1,125 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Uniformes</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uniformes</title>
 
-  <!-- Estilização -->
- 
-  <link rel="stylesheet" href="./estilos/carrinho.css">
-  <link rel="stylesheet" href="./estilos/aba-uniforme.css"> 
-  <link rel="stylesheet" href="./estilos/linhas.css">
-  <link rel="stylesheet" href="./estilos/produtos.css">
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="style.css">
+    <!-- Estilização -->
 
-  <!-- Font Awesome (icons)-->
-  <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <main>
-    <!-- Sessão Cabeçalho -->
-    <header class="cabecalho">
-      <!-- Botão voltar -->
-      <div class="botao-cabecalho">
-        <button class="btn-voltar">
-          <i class="fa-solid fa-arrow-left"></i>
+    <link rel="stylesheet" href="./estilos/carrinho.css" />
+    <link rel="stylesheet" href="./estilos/aba-uniforme.css" />
+    <link rel="stylesheet" href="./estilos/linhas.css" />
+    <link rel="stylesheet" href="./estilos/produtos.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Font Awesome (icons)-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <!-- Sessão Cabeçalho -->
+      <header class="cabecalho">
+        <!-- Botão voltar -->
+        <div class="botao-cabecalho">
+          <button class="btn-voltar">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+
+        <!-- Barra de pesquisa -->
+        <div class="search-container">
+          <i class="fa-solid fa-magnifying-glass icon icon-left"></i>
+          <input
+            type="search"
+            class="barra-de-pesquisa"
+            placeholder="Pesquisar"
+          />
+          <i class="fa-solid fa-arrow-up icon icon-right"></i>
+          <i class="fa-regular fa-keyboard icon icon-extra"></i>
+        </div>
+
+        <!-- Ícone de usuário -->
+        <div class="icon-user">
+          <i class="fa-regular fa-user"></i>
+        </div>
+      </header>
+
+      <!-- Botão carrinho de compras-->
+      <div class="carrinho-compras">
+        <button class="btn-carrinho">
+          <i class="fa-solid fa-cart-shopping" style="color: #ffffff"></i>
         </button>
       </div>
 
-      <!-- Barra de pesquisa -->
-      <div class="search-container">
-        <i class="fa-solid fa-magnifying-glass icon icon-left"></i>
-        <input type="search" class="barra-de-pesquisa" placeholder="Pesquisar">
-        <i class="fa-solid fa-arrow-up icon icon-right"></i>
-        <i class="fa-regular fa-keyboard icon icon-extra"></i>
+      <!-- Aba uniformes -->
+      <div class="aba-uniforme">
+        <img class="uniformes" src="./assets/uniformes.png" alt="Uniformes" />
       </div>
 
-      <!-- Ícone de usuário -->
-      <div class="icon-user">
-        <i class="fa-regular fa-user"></i>
-      </div>
-    </header>
-
-    <!-- Botão carrinho de compras-->
-    <div class="carrinho-compras">
-      <button class="btn-carrinho">
-        <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
-      </button>
-    </div>
-
-    <!-- Aba uniformes -->
-    <div class="aba-uniforme">
-      <img class="uniformes" src="./assets/uniformes.png" alt="Uniformes">
-    </div>
-
-    <!-- Botões produtos-->
-    <div class="container-botoes">
-      <!-- Camisa Polo -->
-      <button class="btn-produto">
-        <img class= " img__produtos" src="./assets/camiseta-polo-basica-masculina-preta.jpg" alt="Camisa Polo">    
-        <div class="texto-produto">
-          <h2>Camisa Polo</h2>
-          <p class="informacoes">Camisa polo Pormade, masculina e feminina. Algodão, manga curta</p>
-          <p class="preco">R$ 48,90</p>
-        </div>
-      </button>
-
-      <!-- Camisa Social -->
-      <button class="btn-produto">
-        <img class= " img__produtos" src="./assets/camisa-social.png" alt="Camisa Social">
-        <div class="texto-produto">
-          <h2>Camisa Social</h2>
-          <p class="informacoes">Camisa social Pormade, masculina e feminina. Algodão manga longa</p>
-          <p class="preco">R$ 60,00</p>
-        </div>
-      </button>
-
-      <!-- Moletom -->
-      <button class="btn-produto">
-        <img class= " img__produtos" src="./assets/moletom.png" alt="Moletom">
-        <div class="texto-produto">
-          <h2>Moletom</h2>
-          <p class="informacoes">Moletom Pormade, masculino e feminino. Algodão manga longa</p>
-          <p class="preco">R$ 84,50</p>
-        </div>
-      </button>
-
-      <!-- Jaqueta -->
-      <button class="btn-produto">
-        <img class= " img__produtos" src="./assets/jaqueta.png" alt="Jaqueta">
-        <div class="texto-produto">
-          <h2>Jaqueta</h2>
-          <p class="informacoes">Jaqueta Pormade, masculino e feminino. Poliéster manga longa</p>
-          <p class="preco">R$ 139,00</p>
-        </div>
-      </button>
-    </div>
-  </main>
-
-  <!-- Modal produto -->
-  <div class="modal" id="modal-produto">
-    <div class="modal-content">
-      <button class="btn-fechar">&times;</button>
-      <img id="modal-produto-img" src="" alt="">
-      <h2 id="modal-produto-nome"></h2>
-      <p id="modal-produto-desc"></p>
-      <h1 id="modal-produto-preco"></h1>
-
-      <!-- Grupo de tamanho -->
-      <div class="grupo-linha">
-        <div class="grupo-opcoes">
-          <h3>Tamanho:</h3>
-          <div class="opcoes">
-            <button class="tamanho-btn">P</button>
-            <button class="tamanho-btn">M</button>
-            <button class="tamanho-btn">G</button>
+      <!-- Botões produtos-->
+      <div class="container-botoes">
+        <!-- Camisa Polo -->
+        <button class="btn-produto">
+          <img
+            class="img__produtos"
+            src="./assets/camiseta-polo-basica-masculina-preta.jpg"
+            alt="Camisa Polo"
+          />
+          <div class="texto-produto">
+            <h2>Camisa Polo</h2>
+            <p class="informacoes">
+              Camisa polo Pormade, masculina e feminina. Algodão, manga curta
+            </p>
+            <p class="preco">R$ 48,90</p>
           </div>
-        </div>
+        </button>
 
-         <!--Grupo de cores
+        <!-- Camisa Social -->
+        <button class="btn-produto">
+          <img
+            class="img__produtos"
+            src="./assets/camisa-social.png"
+            alt="Camisa Social"
+          />
+          <div class="texto-produto">
+            <h2>Camisa Social</h2>
+            <p class="informacoes">
+              Camisa social Pormade, masculina e feminina. Algodão manga longa
+            </p>
+            <p class="preco">R$ 60,00</p>
+          </div>
+        </button>
+
+        <!-- Moletom -->
+        <button class="btn-produto">
+          <img class="img__produtos" src="./assets/moletom.png" alt="Moletom" />
+          <div class="texto-produto">
+            <h2>Moletom</h2>
+            <p class="informacoes">
+              Moletom Pormade, masculino e feminino. Algodão manga longa
+            </p>
+            <p class="preco">R$ 84,50</p>
+          </div>
+        </button>
+
+        <!-- Jaqueta -->
+        <button class="btn-produto">
+          <img class="img__produtos" src="./assets/jaqueta.png" alt="Jaqueta" />
+          <div class="texto-produto">
+            <h2>Jaqueta</h2>
+            <p class="informacoes">
+              Jaqueta Pormade, masculino e feminino. Poliéster manga longa
+            </p>
+            <p class="preco">R$ 139,00</p>
+          </div>
+        </button>
+      </div>
+    </main>
+
+    <!-- Modal produto -->
+    <div class="modal" id="modal-produto">
+      <div class="modal-content">
+        <button class="btn-fechar">&times;</button>
+        <img id="modal-produto-img" src="" alt="" />
+        <h2 id="modal-produto-nome"></h2>
+        <p id="modal-produto-desc"></p>
+        <h1 id="modal-produto-preco"></h1>
+
+        <!-- Grupo de tamanho -->
+        <div class="grupo-linha">
+          <div class="grupo-opcoes">
+            <h3>Tamanho:</h3>
+            <div class="opcoes">
+              <button class="tamanho-btn">P</button>
+              <button class="tamanho-btn">M</button>
+              <button class="tamanho-btn">G</button>
+            </div>
+          </div>
+
+          <!--Grupo de cores
       <div class="grupo-cores">
         <h3>Escolha a cor:</h3>
         <div class="grupo-opcoes">
@@ -133,57 +155,60 @@
         </div>
       </div>-->
 
-      <!-- Grupo quantidade-->
+          <!-- Grupo quantidade-->
 
-        <div class="grupo-opcoes">
-          <h3>Quantidade:</h3>
-          <div class="opcoes">
-            <button class="menos">+</button>
-            <span id="quantidade">1</span>
-            <button class="mais">-</button>
+          <div class="grupo-opcoes">
+            <h3>Quantidade:</h3>
+            <div class="opcoes">
+              <button class="menos">+</button>
+              <span id="quantidade">1</span>
+              <button class="mais">-</button>
+            </div>
           </div>
         </div>
+
+        <!-- Botões finais -->
+        <div class="grupo-botoes">
+          <button class="btn-carrinho-modal">Adicionar ao carrinho</button>
+          <button class="btn-comprar-modal" href="termosDeUso.html">
+            Comprar agora
+          </button>
+        </div>
       </div>
+    </div>
 
-      <!-- Botões finais -->
-      <div class="grupo-botoes">
-        <button class="btn-carrinho-modal">Adicionar ao carrinho</button>    
-        <button class="btn-comprar-modal" href="termosDeUso.html">Comprar agora</button>
-    
+    <!-- Modal Carrinho de compras-->
+    <div class="modal" id="modal-carrinho-compras">
+      <div class="modal-content modal-carrinho">
+        <!-- Cabeçalho -->
+        <div class="meu-carrinho">
+          <span>Meu carrinho</span>
+          <img class="carrin" src="./assets/carrinho.png" alt="Carrinho" />
+        </div>
+
+        <button class="btn-fechar">&times;</button>
+
+        <!-- Lista de itens -->
+        <div id="carrinho-itens"></div>
+
+        <div>
+          <p id="mensagem-vazio">Seu carrinho está vazio</p>
+        </div>
+
+        <!-- Total -->
+        <div class="total">Total: R$ <span id="carrinho-total">0,00</span></div>
+
+        <!-- Botão finalizar -->
+        <div class="finalizar-compra">
+          <button class="btn-finalizar-compra">Comprar Agora</button>
+        </div>
       </div>
     </div>
-  </div>
+    <!-- Script JS -->
+    <script src="main.js"></script>
+  </body>
 
- <!-- Modal Carrinho de compras-->
-<div class="modal" id="modal-carrinho-compras">
-  <div class="modal-content modal-carrinho">
-    
-    <!-- Cabeçalho -->
-    <div class="meu-carrinho">
-      <span>Meu carrinho</span>
-      <img class="carrin" src="./assets/carrinho.png" alt="Carrinho">
-    </div>
-
-    <button class="btn-fechar">&times;</button>
-
-    <!-- Lista de itens -->
-    <div id="carrinho-itens"></div>
-
-    <!-- Total -->
-    <div class="total">Total: R$ <span id="carrinho-total">0,00</span></div>
-
-    <!-- Botão finalizar -->
-    <div class="finalizar-compra">
-      <button class="btn-finalizar-compra">Comprar Agora</button>
-    </div>
-
-  </div>
-</div>
-  <!-- Script JS -->
-  <script src="main.js"></script>
-</body>
-
-<footer class="footer">
-  <p>© 2024 Pormade. Todos os direitos reservados.</p>
-</footer>
+  <footer class="footer">
+    <p>© 2024 Pormade. Todos os direitos reservados.</p>
+  </footer>
 </html>

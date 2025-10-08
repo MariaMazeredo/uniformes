@@ -15,6 +15,8 @@
 .container-botoes{
   display: flex;
   flex-direction: column; /* deixa um embaixo do outro */
+  flex-wrap: wrap;      /* permite quebra de linha */   
+  justify-content: center; /* centraliza horizontalmente */
   align-items: center;    /* centraliza */
   gap: 20px;              /* espaço entre os botões */
   margin-top: 35px;

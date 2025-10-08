@@ -37,14 +37,15 @@ body{
   align-items: center;
 }
 
-.aba-uniforme img{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 380px;
+.aba-uniforme img {
+  width: 100%;
+  max-width: 380px; /* largura máxima em telas grandes */
   height: auto;
   border-radius: 6px;
   margin-bottom: 10px;
+  display: block; /* remove espaços indesejados abaixo da imagem */
+  margin-left: auto;
+  margin-right: auto; /* centraliza a imagem */
 }
 
 .footer {
@@ -85,4 +86,12 @@ body{
     height: auto;
     margin-top: 20px;
     margin-bottom: -30px;
+}
+
+.Acompanhamento {
+    font-size: 40px;
+    margin-top: 30px;
+    color: var(--branco);
+    font-family:'Montserrat', sans-serif; 
+    font-weight: 400;
 }

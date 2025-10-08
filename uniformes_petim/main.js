@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const botoesFechar = document.querySelectorAll(".btn-fechar");
   const carrinhoItens = document.getElementById("carrinho-itens");
   const carrinhoTotalSpan = document.getElementById("carrinho-total");
+  const mensagemVazio = document.getElementById("mensagem-vazio");
 
   let quantidade = 1;
   let tamanhoSelecionado = "";
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Abrir modal produto
-  botoesProduto.forEach(botao => {
+  botoesProduto.forEach((botao) => {
     botao.addEventListener("click", () => {
       const img = botao.querySelector("img");
       const nome = botao.querySelector("h2");
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       quantidade = 1;
       quantidadeSpan.textContent = quantidade;
       tamanhoSelecionado = "";
-      tamanhoBtns.forEach(b => b.classList.remove("selecionado"));
+      tamanhoBtns.forEach((b) => b.classList.remove("selecionado"));
 
       abrirModal(modalProduto);
     });
@@ -58,28 +59,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const maisBtn = document.querySelector(".menos");
   const menosBtn = document.querySelector(".mais");
 
-if (menosBtn) menosBtn.addEventListener("click", () => {
-    if (quantidade > 1) quantidade--;
-    quantidadeSpan.textContent = quantidade;
-  });
+  if (menosBtn)
+    menosBtn.addEventListener("click", () => {
+      if (quantidade > 1) quantidade--;
+      quantidadeSpan.textContent = quantidade;
+    });
 
-if (maisBtn) maisBtn.addEventListener("click", () => {
-    quantidade++;
-    quantidadeSpan.textContent = quantidade;
-  });
-
+  if (maisBtn)
+    maisBtn.addEventListener("click", () => {
+      quantidade++;
+      quantidadeSpan.textContent = quantidade;
+    });
 
   // Botões de tamanho
-  tamanhoBtns.forEach(btn => {
+  tamanhoBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      tamanhoBtns.forEach(b => b.classList.remove("selecionado"));
+      tamanhoBtns.forEach((b) => b.classList.remove("selecionado"));
       btn.classList.add("selecionado");
       tamanhoSelecionado = btn.textContent;
     });
   });
 
   // Fechar modais
-  botoesFechar.forEach(btn => {
+  botoesFechar.forEach((btn) => {
     btn.addEventListener("click", () => {
       const modal = btn.closest(".modal");
       if (modal) fecharModal(modal);
@@ -93,19 +95,19 @@ if (maisBtn) maisBtn.addEventListener("click", () => {
   });
 
   const botaoComprarModal = document.querySelector(".btn-comprar-modal");
-if (botaoComprarModal) {
-  botaoComprarModal.addEventListener("click", () => {
-    window.location.href = "finalizado.html";
-  });
-}
+  if (botaoComprarModal) {
+    botaoComprarModal.addEventListener("click", () => {
+      window.location.href = "termosDeUso.html";
+    });
+  }
 
-// Botão "Comprar Agora" do modal carrinho
-const botaoFinalizarCompra = document.querySelector(".btn-finalizar-compra");
-if (botaoFinalizarCompra) {
-  botaoFinalizarCompra.addEventListener("click", () => {
-    window.location.href = "termosDeUso.html";
-  });
-}
+  // Botão "Comprar Agora" do modal carrinho
+  const botaoFinalizarCompra = document.querySelector(".btn-finalizar-compra");
+  if (botaoFinalizarCompra) {
+    botaoFinalizarCompra.addEventListener("click", () => {
+      window.location.href = "termosDeUso.html";
+    });
+  }
 
   // Abrir modal carrinho
   if (botaoCarrinho) {
@@ -117,28 +119,32 @@ if (botaoFinalizarCompra) {
 
   // Adicionar ao carrinho
   if (botaoCarrinhoModal) {
-  botaoCarrinhoModal.addEventListener("click", () => {
-    // Verifica se o tamanho foi selecionado
-    if (!tamanhoSelecionado) {
-      alert("Selecione um tamanho antes de adicionar ao carrinho!");
-      return; // impede adicionar sem tamanho
-    }
+    botaoCarrinhoModal.addEventListener("click", () => {
+      // Verifica se o tamanho foi selecionado
+      if (!tamanhoSelecionado) {
+        alert("Selecione um tamanho antes de adicionar ao carrinho!");
+        return; // impede adicionar sem tamanho
+      }
 
-    const nome = modalProdutoNome.textContent;
-    const precoTexto = modalProdutoPreco.textContent.replace("R$ ", "").replace(",", ".");
-    const preco = parseFloat(precoTexto) || 0;
-    const img = modalProdutoImg.src;
+      const nome = modalProdutoNome.textContent;
+      const precoTexto = modalProdutoPreco.textContent
+        .replace("R$ ", "")
+        .replace(",", ".");
+      const preco = parseFloat(precoTexto) || 0;
+      const img = modalProdutoImg.src;
 
-    adicionarAoCarrinho(nome, preco, img, quantidade, tamanhoSelecionado);
+      adicionarAoCarrinho(nome, preco, img, quantidade, tamanhoSelecionado);
 
-    fecharModal(modalProduto);
-    abrirModal(modalCarrinho);
-  });
-}
+      fecharModal(modalProduto);
+      abrirModal(modalCarrinho);
+      mensagemVazio.style.display =
+        carrinhoItens.children.length === 0 ? "block" : "none"; // Atualiza mensagem carrinho vazio
+    });
+  }
 
   function adicionarAoCarrinho(nome, preco, img, qtd, tamanho) {
     // Verifica se já existe produto com mesmo nome e tamanho
-    let itemExistente = Array.from(carrinhoItens.children).find(item => {
+    let itemExistente = Array.from(carrinhoItens.children).find((item) => {
       return item.dataset.nome === nome && item.dataset.tamanho === tamanho;
     });
 
@@ -156,15 +162,15 @@ if (botaoFinalizarCompra) {
       itemCarrinho.dataset.nome = nome;
       itemCarrinho.dataset.tamanho = tamanho;
 
-    if (tamanho != "p, m, g, gg") {
-      nome += ` - ${tamanho}`;
-    }
+      if (tamanho != "p, m, g, gg") {
+        nome += ` - ${tamanho}`;
+      }
 
       itemCarrinho.innerHTML = `
         <input type="checkbox" checked>
         <img src="${img}" alt="${nome}">
         <div class="produto-info">
-          <span class="nome">${nome} ${tamanho ? '- ' + tamanho : ''}</span>
+          <span class="nome">${nome} ${tamanho ? "- " + tamanho : ""}</span>
           <span class="preco">R$ ${preco.toFixed(2).replace(".", ",")}</span>
           <span class="quantidade-item">${qtd}</span>
         </div>
@@ -174,13 +180,17 @@ if (botaoFinalizarCompra) {
       carrinhoItens.appendChild(itemCarrinho);
 
       // Remover item
-      itemCarrinho.querySelector(".btn-remover").addEventListener("click", () => {
-        itemCarrinho.remove();
-        atualizarTotal();
-      });
+      itemCarrinho
+        .querySelector(".btn-remover")
+        .addEventListener("click", () => {
+          itemCarrinho.remove();
+          atualizarTotal();
+        });
 
       // Atualiza total ao marcar/desmarcar
-      itemCarrinho.querySelector("input[type='checkbox']").addEventListener("change", atualizarTotal);
+      itemCarrinho
+        .querySelector("input[type='checkbox']")
+        .addEventListener("change", atualizarTotal);
     }
 
     atualizarTotal();
@@ -188,7 +198,7 @@ if (botaoFinalizarCompra) {
 
   function atualizarTotal() {
     let total = 0;
-    document.querySelectorAll("#carrinho-itens .produto").forEach(item => {
+    document.querySelectorAll("#carrinho-itens .produto").forEach((item) => {
       const checkbox = item.querySelector("input[type='checkbox']");
       if (checkbox && checkbox.checked) {
         const preco = parseFloat(item.dataset.preco) || 0;
