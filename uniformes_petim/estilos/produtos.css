@@ -6,19 +6,19 @@
   border: 1px solid var(--branco);
   color: var(--branco);
   cursor: pointer;
-  display: flex;            /* coloca imagem + texto lado a lado */
-  align-items: flex-start;  /* alinha pelo topo */
-  gap: 15px;                /* espaço entre imagem e textos */
+  display: flex;           
+  align-items: flex-start;  
+  gap: 15px;                
   padding: 10px;
 }
 
 .container-botoes{
   display: flex;
-  flex-direction: column; /* deixa um embaixo do outro */
-  flex-wrap: wrap;      /* permite quebra de linha */   
-  justify-content: center; /* centraliza horizontalmente */
-  align-items: center;    /* centraliza */
-  gap: 20px;              /* espaço entre os botões */
+  flex-direction: column; 
+  flex-wrap: wrap;     
+  justify-content: center; 
+  align-items: center;    
+  gap: 20px;            
   margin-top: 35px;
   
 }

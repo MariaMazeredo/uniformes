@@ -219,27 +219,38 @@ if (botaoVoltar) {
   });
 }
 
-// Botão Negar Termos para página inicial
-const botaoNegarTermos = document.querySelector(".btn-negar-termos");
-if (botaoNegarTermos) {
-  botaoNegarTermos.addEventListener("click", () => {
-    window.location.href = "index.html";
-  });
-}
-
-// Botão Aceitar Termos para página de finalização
-const botaoAceitarTermos = document.querySelector(".btn-aceitar-termos");
-if (botaoAceitarTermos) {
-  botaoAceitarTermos.addEventListener("click", () => {
-    window.location.href = "finalizado.html";
-  });
-
-  function validarFormulario() {
-    const nomeInput = document.getElementById("nome");
+// document.addEventListener("DOMContentLoaded", () => {
+  // Botão Negar Termos para página inicial
+  const botaoNegarTermos = document.querySelector(".btn-negar-termos");
+  if (botaoNegarTermos) {
+    botaoNegarTermos.addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
   }
+
+  // Botão Aceitar Termos para página de finalização
+  const botaoAceitarTermos = document.querySelector(".btn-aceitar-termos");
+  if (botaoAceitarTermos) {
+    botaoAceitarTermos.addEventListener("click", () => {
+      window.location.href = "finalizado.html";
+    });
+  }
+
+  // Validação opcional de formulário (se os campos existirem)
+  const nomeInput = document.getElementById("nome");
   const emailInput = document.getElementById("email");
   const mensagemInput = document.getElementById("mensagem");
   const botaoEnviar = document.getElementById("btn-enviar");
 
-  if (!nomeInput || !emailInput || !mensagemInput || !botaoEnviar) return;
-}
+  if (botaoEnviar && nomeInput && emailInput && mensagemInput) {
+    botaoEnviar.addEventListener("click", (e) => {
+      if (!nomeInput.value.trim() || !emailInput.value.trim() || !mensagemInput.value.trim()) {
+        e.preventDefault();
+        alert("Preencha todos os campos antes de enviar.");
+        return;
+      }
+      // aqui pode submeter o form ou realizar outra ação
+    });
+  }
+// });
+
