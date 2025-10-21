@@ -233,4 +233,13 @@ if (botaoAceitarTermos) {
   botaoAceitarTermos.addEventListener("click", () => {
     window.location.href = "finalizado.html";
   });
+
+  function validarFormulario() {
+    const nomeInput = document.getElementById("nome");
+  }
+  const emailInput = document.getElementById("email");
+  const mensagemInput = document.getElementById("mensagem");
+  const botaoEnviar = document.getElementById("btn-enviar");
+
+  if (!nomeInput || !emailInput || !mensagemInput || !botaoEnviar) return;
 }

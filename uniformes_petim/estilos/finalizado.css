@@ -49,3 +49,12 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+.Acompanhamento {
+  background-color: var(--cor-de-fundo);
+  color: var(--branco);
+  text-align: center;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  margin: 5px;
+}

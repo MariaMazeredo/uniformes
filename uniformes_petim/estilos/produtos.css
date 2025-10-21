@@ -52,3 +52,62 @@
     margin-top: 25px;
 }
 
+
+@media (min-width: 900px) {
+  /* Container passa a ser grid para distribuir os cards em colunas */
+  .container-botoes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 20px;
+    align-items: start;
+  }
+
+  /* Cards ocupam toda a coluna do grid e têm layout horizontal */
+  .btn-produto{
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    min-height: 140px;
+    box-sizing: border-box;
+  }
+
+  /* Imagem maior e proporcional */
+  .btn-produto img {
+    width: 140px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0;
+  }
+
+  /* Texto ocupa o restante do espaço */
+  .texto-produto{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  .btn-produto h2{
+    margin: 0;
+    text-align: left;
+  }
+
+  .informacoes{
+    text-align: left;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .preco{
+    margin-top: 6px;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+}
+
